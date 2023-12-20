@@ -9,7 +9,7 @@ pd.set_option('display.max_rows', 200)
 pd.options.display.max_colwidth = 500
 
 #Adding bader_charges
-bader_file_path = './cleaned_CuNi.csv'
+bader_file_path = './bader_charge.csv'
 charges_df = pd.read_csv(bader_file_path)
 charges_df.bader_charge = charges_df['bader_charge'].round(decimals = 4)
 struct_64_charges_list = list(np.array(charges_df.bader_charge))
@@ -49,7 +49,7 @@ charges_distance_Ni_35_40 = []
 
 
 adsite_index = []
-folder_path = '/Users/parastooagharezaei/Desktop/SVM_alloy_Eads/CuNi_adsites/'
+folder_path = './adsites_dir/'
 for n in range(1,128):
     file_name = f'ad_site_{n}.in'
     f = open(folder_path + 'ad_sites_natm_256/' + file_name,'r')
@@ -279,4 +279,4 @@ cn_df = pd.DataFrame(
 
 cn_df.index = cn_df.index + 1
 
-cn_df.to_csv(folder_path+'final_data.csv', index=False)
+cn_df.to_csv(adsitr_dir +'final_data.csv', index=False)
